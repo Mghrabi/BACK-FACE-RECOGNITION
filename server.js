@@ -8,7 +8,7 @@ const db = knex({
     connection: {
       host : '127.0.0.1',
       user : 'postgres',
-      password : 'HELLO97978684',
+      password : process.env.pass,
       database : 'smart_brain'
     }
   });
@@ -124,7 +124,7 @@ app.post('/register', (req, res) => {
     else {
         if(!password) res.json('please enter a password');
         else{
-            res.json('please enter an email')
+            res.json('please enter an email');
         }
     }
     
@@ -163,8 +163,8 @@ app.put('/image', (req, res) => {
 
 
 
-app.listen(process.env.PORT || 3001, () => {
-    console.log('app is running');
+app.listen(process.env.PORT ||3001, () => {
+    console.log(`app is running on PORT ${process.env.PORT}`);
 });
 /*
 1-/sign in 
